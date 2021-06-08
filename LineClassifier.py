@@ -97,7 +97,7 @@ def main():
   g_OptParser.add_option("-c", "--cfgname", dest="cfgname", \
     help="Config INI filename", metavar="FILE")
   g_OptParser.add_option("-f", "--filename", dest="filename", \
-    help="Config INI filename", metavar="FILE")
+    help="data filename", metavar="FILE")
   (options, args) = g_OptParser.parse_args()
   for szOptValName in requiredOpts:
     if options.__dict__[szOptValName] is None:
