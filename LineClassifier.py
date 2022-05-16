@@ -2,7 +2,7 @@
 #-*-coding:utf-8-*-
 
 import re
-import ConfigParser
+import configparser
 from optparse import OptionParser
 g_szVersion = "1.0.0"
 
@@ -11,7 +11,7 @@ g_OptParser = OptionParser(version="%%prog %s" % (g_szVersion))
 class CSectionObject():
   def printResult(self):
     for curItem in self.m_lst_result:
-      print curItem
+      print(curItem)
   def addResult(self, szLine):
     self.m_lst_result.append(szLine)
   def search(self, szLine):
@@ -60,7 +60,7 @@ class CLineFormatClassifier():
        szPrintSecName=curSecName
        if ( self.m_dictSysVariable[curSecName].mv_alias != None):
          szPrintSecName=self.m_dictSysVariable[curSecName].mv_alias
-       print "%s" % szPrintSecName
+       print("%s" % szPrintSecName)
        self.m_dictSysVariable[curSecName].printResult()
   def doIt(self, szLine):
     for curSecName in self.m_ListSysVariable:
@@ -85,7 +85,7 @@ class CLineFormatClassifier():
     if ( self.m_dictSysVariable["default"].search(szLine) ):
       self.m_dictSysVariable["default"].addResult(szLine)
   def loadConfig(self, argConfig):
-    self.m_ini_cfg = ConfigParser.ConfigParser()
+    self.m_ini_cfg = configparser.ConfigParser()
     self.m_ini_cfg.optionxform = str
     self.m_ini_cfg.read(argConfig)
     for szCurSection in self.m_ini_cfg.sections():
